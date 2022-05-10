@@ -2,9 +2,9 @@ import * as Markdown from 'markdown-it'
 import { readFile, writeFile, readdir, copyFile, rm, mkdir, access } from 'fs/promises'
 import * as ejs from 'ejs'
 import * as path from 'path';
-import * as config from './config.json'
-import * as tsConfig from './tsconfig.json'
-import { readContent, copyDir } from './utils'
+import * as config from '../config.json'
+import * as tsConfig from '../tsconfig.json'
+import { readContent, copyDir } from './helpers'
 
 // Constants
 const __filename = tsConfig.compilerOptions.baseUrl;
