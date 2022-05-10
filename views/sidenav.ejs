@@ -1,0 +1,11 @@
+<nav class="nav">
+  <% if (pages) { %>
+    <ul>
+      <% pages.forEach(function(page){ %>
+        <a href="/<%= page.href %>"">
+          <%= page.name %>
+        </a>
+        <% }); %>
+      <% } %>
+    </ul>
+</nav>

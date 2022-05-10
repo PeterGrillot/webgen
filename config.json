@@ -1,0 +1,9 @@
+{
+  "name": "Peter Grillot",
+  "index": "about",
+  "links": [
+    {"name": "Github", "href": "https://github.com/PeterGrillot"},
+    {"name": "Linked In", "href": "https://www.linkedin.com/in/petergrillot/"},
+    {"name": "petergrillot [at] gmail", "href": "mailto:petergrillot@gmail.com"}
+  ]
+}

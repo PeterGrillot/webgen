@@ -1,0 +1,25 @@
+<footer class="footer">
+  <% if (nav.prev) { %>
+      <a href=<%= nav.prev.href %>>
+        &larr;<%= nav.prev.name %>
+      </a>
+  <% } %>
+  <% if (nav.next && nav.prev) { %>|<% } %>
+  <% if (nav.next) { %>
+      <a href=<%= nav.next.href %>>
+        <%= nav.next.name %>&rarr;
+      </a>
+  <% } %>
+  <p>
+    I am a Full Stack Dev with a focus on modern Javascript frameworks. I love coding, learning and playing music. I am from Washington, D.C.
+  </p>
+  <ul>
+    <% if (links) { %>
+      <% links.forEach(function(link){ %>
+        <a href=<%= link.href %> target="_blank" rel="noopener noreferrer">
+          <%= link.name %>
+        </a>
+      <% }); %>
+    <% } %>
+  </ul>
+</footer>
