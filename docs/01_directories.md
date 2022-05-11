@@ -18,14 +18,4 @@ Markdown files go here. Use `01_` prefix for indexing and `_` for spacing. If th
 
 ```
 
-`static`
-
-Static images and files go here. This can include anything, we just copy over the directory on build. Link using `/static/<filename>`.
-
-`styles`
-
-CSS files go here. This is also just copied so be sure to add your own preprocessor if needed.
-
-`views`
-
-Add `.ejs` templates here. See [EJS Docs](https://ejs.co/#docs) for more info on how to use.
+[More in the Readme!](https://github.com/PeterGrillot/webgen)

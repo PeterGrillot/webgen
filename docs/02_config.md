@@ -14,3 +14,5 @@ Set some simple configs to tweak footer links and set the index page.
   ]
 }
 ```
+
+[More in the Readme!](https://github.com/PeterGrillot/webgen)
