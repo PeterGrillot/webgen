@@ -8,12 +8,11 @@ Build websites like it's 2004. Create super simple web pages using `Markdown`. A
 
 ### Config
 
-Set some simple configs to tweak footer links and set the index page.
+Set some simple configs to tweak footer links and set the index page. This is completely customizable as this data get injected into `.ejs` and can be accessed using `<% key %>` to render `value`.
 
 ```js
 {
   "name": string, // Site name - Appears in page title
-  "index": string, // Which markdown page should be index.html
   "links": [ // Array of link objects for footer
     {
       "name": string, // link name
