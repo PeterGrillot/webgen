@@ -28,11 +28,11 @@ Set some simple configs to tweak footer links and set the index page. This is co
 
 ### Development
 
-`npm run dev` - runs `build` and serves on `localhost:8080`.build
+`npm run dev` - runs `npm run build` and serves on `localhost:8080` via `http-server`
 
 ### Clean
 
-`npm run clean` - clears out example files.
+`npm run clean` - cleans out example files for a fresh start.
 
 ### Directories
 
@@ -58,4 +58,4 @@ CSS files go here. This is also just copied so be sure to add your own preproces
 
 `views`
 
-Add `.ejs` templates here. See <a href="https://ejs.co/#docs" target="_blank">EJS Docs</a> for more info on how to use.
+Add `.ejs` templates here. See <a href="https://ejs.co/#docs" target="_blank">EJS Docs</a> for more info on how to use this robust templating language.
