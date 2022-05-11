@@ -32,7 +32,6 @@ export async function copyDir(src: string, dest: string) {
   let entries = await readdir(src, { withFileTypes: true });
 
   for (let entry of entries) {
-    console.log(src, entry.name, path.join(src, entry.name))
     let srcPath = path.join(src, entry.name);
     let destPath = path.join(dest, entry.name);
 
@@ -41,7 +40,6 @@ export async function copyDir(src: string, dest: string) {
       await copyFile(srcPath, destPath);
   }
 }
-
 
 /**
  * Overloads readFile from fs with utf-8
@@ -53,8 +51,3 @@ export async function copyDir(src: string, dest: string) {
 export async function readContent(argPath: PathLike) {
   return await readFile(argPath, 'utf8')
 }
-
-export const prompt = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
