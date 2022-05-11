@@ -12,13 +12,8 @@ const __dirname = path.dirname(__filename)
 const __dist = 'dist/'
 
 async function build() {
-  debugger;
   // Clean Dist
-  try {
-    await cleanDir(path.join(__dirname, __dist))
-  } catch (e) {
-    console.log(e)
-  }
+  await cleanDir(path.join(__dirname, __dist))
 
   // Copy CSS
   console.log('💾 Copying Files... 💾')
@@ -37,10 +32,11 @@ async function build() {
   // Create Pages
   console.log('⚙️  Creating pages... ⚙️')
   const basePagination = readDocs.map((page, index) => {
-    const cleanedName = page.split('.')[0].replace(/([0-9][0-9]_)+/gm, '')
+    const removedIndex = page.split('.')[0].replace(/([0-9][0-9]_)+/gm, '')
+    const removedUnderscore = removedIndex.replace(/_/gm, ' ')
     return {
-      name: cleanedName,
-      href: `${index === 0 ? 'index' : cleanedName}.html`,
+      name: removedUnderscore,
+      href: `${index === 0 ? 'index' : removedIndex}.html`,
     }
   })
 
@@ -60,11 +56,11 @@ async function build() {
   console.log('🏁 Finishing building pages 🏁')
   docs.forEach((doc, index) => {
     const options = { ...config, doc, pages, nav: pages[index] }
-    ejs.renderFile('./views/index.ejs', options, async (err, string) => {
-      const { href } = pages[index];
-      const htmlString = string.replace(/^\s+|\s+$|\n(?=((?!<\/pre).)*?(<pre|$))/sg, "")
+    ejs.renderFile('./views/index.ejs', options, async (err, html) => {
+      const { href } = pages[index]
+      const compressedHtml = html.replace(/^\s+|\s+$|\n(?=((?!<\/pre).)*?(<pre|$))/sg, "")
       try {
-        await writeFile(`./${__dist}/${href}`, `<!-- Generated Code | Do Not Edit -->${htmlString}`)
+        await writeFile(`./${__dist}/${href}`, `<!-- Generated Code | Do Not Edit -->${compressedHtml}`)
       } catch (e) {
         console.log(e)
       }

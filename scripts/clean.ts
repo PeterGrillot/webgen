@@ -1,9 +1,5 @@
-import * as Markdown from 'markdown-it'
-import { readFile, writeFile, readdir, copyFile, rm, mkdir, access } from 'fs/promises'
-import * as ejs from 'ejs'
 import * as path from 'path';
 import * as readline from 'readline';
-import * as config from '../config.json'
 import * as tsConfig from '../tsconfig.json'
 
 import { cleanDir } from './helpers'
