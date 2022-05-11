@@ -1,12 +1,14 @@
 <nav class="nav">
-  <% if (pages) { %>
-    <% pages.forEach(function(page, index){ %>
-      <% if (index !== 0) { %>
-        <span> | </span>
-      <% } %>
+  <% pages.forEach(function(page, index){ %>
+    <% if (index !== 0) { %>
+      <span> | </span>
+    <% } %>
+    <% if (nav.name === page.name) { %>
+      <span><%= page.name %></span>
+    <%} else { %>
       <a href="/<%= page.href %>"">
         <%= page.name %>
       </a>
-    <% }); %>
-  <% } %>
+      <% } %>
+  <% }); %>
 </nav>

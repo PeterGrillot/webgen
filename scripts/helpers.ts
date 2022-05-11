@@ -2,7 +2,6 @@
 import { PathLike } from "fs";
 import { readFile, mkdir, readdir, copyFile, rm, access } from "fs/promises";
 import * as path from "path";
-import * as readline from 'readline';
 
 /**
  * Cleans out a directory
@@ -31,13 +30,18 @@ export async function copyDir(src: string, dest: string) {
   await mkdir(dest, { recursive: true });
   let entries = await readdir(src, { withFileTypes: true });
 
-  for (let entry of entries) {
-    let srcPath = path.join(src, entry.name);
-    let destPath = path.join(dest, entry.name);
+  try {
 
-    entry.isDirectory() ?
-      await copyDir(srcPath, destPath) :
-      await copyFile(srcPath, destPath);
+    for (let entry of entries) {
+      let srcPath = path.join(src, entry.name);
+      let destPath = path.join(dest, entry.name);
+
+      entry.isDirectory() ?
+        await copyDir(srcPath, destPath) :
+        await copyFile(srcPath, destPath);
+    }
+  } catch (e) {
+    console.error(e)
   }
 }
 
@@ -46,8 +50,8 @@ export async function copyDir(src: string, dest: string) {
  *
  * @export
  * @param {PathLike} argPath
- * @return {*} 
+ * @return {Promise<string>} content as string 
  */
-export async function readContent(argPath: PathLike) {
+export async function readContent(argPath: PathLike): Promise<string> {
   return await readFile(argPath, 'utf8')
 }
