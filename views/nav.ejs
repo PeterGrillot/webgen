@@ -1,0 +1,12 @@
+<nav class="nav">
+  <% if (pages) { %>
+    <% pages.forEach(function(page, index){ %>
+      <% if (index !== 0) { %>
+        <span> | </span>
+      <% } %>
+      <a href="/<%= page.href %>"">
+        <%= page.name %>
+      </a>
+    <% }); %>
+  <% } %>
+</nav>

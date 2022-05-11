@@ -11,10 +11,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/static/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
+    <title class="title"><%= title %> - <%= nav.name %></title>
   </head>
   <body>
-    <%- include('header.ejs'); %>
-    <%- include('sidenav.ejs'); %>
+    <%- include('nav.ejs'); %>
     <%- include('content.ejs'); %>
     <%- include('footer.ejs'); %>
   </body>
