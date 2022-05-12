@@ -1,0 +1,15 @@
+<style>
+  .blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+</style>
+
+<h2>You can also use plain <span class="blink">HTML!</span></h2>
+
+<p>Just drop an HTML page in the <pre><code>docs</code></pre> directory with the same naming convention as markdown. It's that easy!</p>

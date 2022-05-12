@@ -24,8 +24,10 @@ async function build() {
   console.log('📖 Reading `docs` directory... 📖')
   const readDocs = await readdir('./docs/')
   const docs = await Promise.all(readDocs.map(async (doc) => {
-    const text = await readContent(`./docs/${doc}`)
-    const html = Markdown().render(text)
+    let html = await readContent(`./docs/${doc}`)
+    if (path.extname(doc) === '.md') {
+      return Markdown().render(html)
+    }
     return html
   }))
 
