@@ -1,14 +1,17 @@
 <nav class="nav">
-  <% pages.forEach(function(page, index){ %>
-    <% if (index !== 0) { %>
-      <span> | </span>
+  <ul>
+  <% nav.forEach(function(value) { %>
+    <% if(value.href) {%>
+      <li><a href=/<%= value.href %>><%= value.name %></a></li>
     <% } %>
-    <% if (nav.name === page.name) { %>
-      <span><%= page.name %></span>
-    <%} else { %>
-      <a href="/<%= page.href %>"">
-        <%= page.name %>
-      </a>
-      <% } %>
-  <% }); %>
+    <% if(value.dir) {%>
+      <li><%= value.dir %>
+      <ul>
+      <% value.nested.forEach(function(nest) { %>
+        <li><a href=/<%= nest.href %>><%= nest.name %></a></li>
+      <% }) %>
+      </ul>
+    <% } %>
+  <% }) %>
+  </ul>
 </nav>
