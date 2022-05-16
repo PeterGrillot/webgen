@@ -8,13 +8,15 @@ Build websites like it's 2004. Create super simple web pages using `Markdown`. A
 
 `docs`
 
-Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spacing. If this convention is not followed, the build will break! Don't worry, we strip the numbers out on build.
+Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spacing. If this convention is not followed, the build will break! Don't worry, we strip the numbers out on build. Single layer nesting is also supported!
 
 ```
 📂 docs
- L  01_welcome.md
- L  02_what_we_offer.md
- L  03_about_us.html
+ L 01_welcome.md
+ L 📂 02_what_we_offer
+    L 01_products.md
+    L 02_services.md
+ L 03_about_us.html
 
 ```
 

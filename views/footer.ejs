@@ -1,19 +1,19 @@
 <footer class="footer">
-  <% if (nav.prev) { %>
-      <a href=<%= nav.prev.href %>>&larr;<%= nav.prev.name %></a>
+  <% if (prev) { %>
+      <a href=/<%= prev.href %>>&larr;<%= prev.name %></a>
   <% } %>
-  <% if (nav.next && nav.prev) { %>
+  <% if (next && prev) { %>
     <span>&nbsp;|&nbsp;</span>  
   <% } %>
-  <% if (nav.next) { %>
-      <a href=<%= nav.next.href %>><%= nav.next.name %>&rarr;</a>
+  <% if (next) { %>
+      <a href=/<%= next.href %>><%= next.name %>&rarr;</a>
   <% } %>
   <p>
     I am a super simple html page build with webgen technology leveraging markdown and ejs.
   </p>
   <% if (links) { %>
     <% links.forEach(function(link){ %>
-      <a href=<%= link.href %> target="_blank" rel="noopener noreferrer">
+      <a href=/<%= link.href %> target="_blank" rel="noopener noreferrer">
         <%= link.name %>
       </a>
     <% }); %>
