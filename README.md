@@ -48,6 +48,17 @@ Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spaci
 
 ```
 
+You can also nest one level in a directory with the same numbered prefix naming. **Important** Nested directories can only exist after an index file `01_<name>.html` or `01_<name>.md`. This makes it easier to handle index pages. Consider the following:
+
+```
+📂 docs
+ L 01_welcome.md
+ L 📂 02_what_we_offer
+    L 01_products.html
+    L 02_services.md
+ L 03_about_us.html
+```
+
 `static`
 
 Static images and files go here. This can include anything, we just copy over the directory on build. Link using `/static/<filename>`.
