@@ -6,6 +6,13 @@
 
 Build websites like it's 2004. Create super simple web pages using `Markdown`. Also comes with templating via `ejs`. Built with node and typescript, it's perfect for github pages or simple resume sites!
 
+This is pretty bare-bones and does _yet_ not include:
+
+- typescript support
+- CSS preprocessing
+
+So keep it simple! Or expand this! You can use Javascript directly in `.ejs` files. YOu can also dig into the `build.ts` and hijack the `copyDir` to add any preprocess stuff. Hack away 🤓
+
 ### Config
 
 Set some simple configs to tweak footer links and set the index page. This is completely customizable as this data get injected into `.ejs` and can be accessed using `<% key %>` to render `value`.
@@ -48,7 +55,13 @@ Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spaci
 
 ```
 
-You can also nest one level in a directory with the same numbered prefix naming. **Important** Nested directories can only exist after an index file `01_<name>.html` or `01_<name>.md`. This makes it easier to handle index pages. Consider the following:
+#### Subdirectories
+
+You can also nest one level in a directory with the same numbered prefix naming.
+
+> **Important** Nested directories can only exist after an index file `01_<name>.html` or `01_<name>.md`. This makes it easier to handle index pages.
+
+Consider the following:
 
 ```
 📂 docs

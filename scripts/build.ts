@@ -25,9 +25,14 @@ async function build() {
   // Clean Dist
   await cleanDir(path.join(distDir))
 
-  // Copy CSS
+  // Copy CSS and Static Files
+  // Add any preprocess stuff here!
+  // series([
+  //   () => exec('tsc dir/index.ts -o static/index.js'),
+  //   () => exec('postcss --use autoprefixer -o styles/main.css static/*.css')
+  //  ]); 
   console.info('💾 Copying Files... 💾')
-  copyFile(path.join(__dirname, '/styles/main.css'), path.join(distDir, 'styles.css'))
+  await copyDir(path.join(__dirname, '/styles/'), path.join(distDir, '/styles/'))
   await copyDir(path.join(__dirname, '/static/'), path.join(distDir, '/static/'))
 
   // Read markdown files from `docs` directory
