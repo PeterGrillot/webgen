@@ -1,19 +1,19 @@
 <footer class="footer">
   <% if (prev) { %>
-      <a href=<% if (root !== '.') { %>/<%= root %>/<% } %><%= prev.href %>>&larr;<%= prev.name %></a>
+      <a href=<%- include('smartlink.ejs'); %><%= prev.href %>>&larr;<%= prev.name %></a>
   <% } %>
   <% if (next && prev) { %>
     <span>&nbsp;|&nbsp;</span>  
   <% } %>
   <% if (next) { %>
-      <a href=<% if (root !== '.') { %>/<%= root %>/<% } %><%= next.href %>><%= next.name %>&rarr;</a>
+      <a href=<%- include('smartlink.ejs'); %><%= next.href %>><%= next.name %>&rarr;</a>
   <% } %>
   <p>
     I am a super simple html page build with webgen technology leveraging markdown and ejs.
   </p>
   <% if (links) { %>
     <% links.forEach(function(link){ %>
-      <a href=<% if (root !== '.') { %>/<%= root %>/<% } %><%= link.href %> target="_blank" rel="noopener noreferrer">
+      <a href=<%- include('smartlink.ejs'); %><%= link.href %> target="_blank" rel="noopener noreferrer">
         <%= link.name %>
       </a>
     <% }); %>

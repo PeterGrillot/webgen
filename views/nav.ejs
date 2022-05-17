@@ -6,7 +6,7 @@
         <% if (value.name === name) { %>
            <%= value.name %>
         <% } else { %>
-           <a href=<% if (root !== '.') { %>/<%= root %>/<% } %><%= value.href %>>
+           <a href=<%- include('smartlink.ejs'); %><%= value.href %>>
             <%= value.name %>
           </a>
         <% } %>
@@ -20,7 +20,7 @@
           <% if (nest.href === href) { %>
             <%= nest.name %>
           <% } else { %>
-             <a href=<% if (root !== '.') { %>/<%= root %>/<% } %><%= nest.href %>>
+             <a href=<%- include('smartlink.ejs'); %><%= nest.href %>>
               <%= nest.name %>
             </a>
           <% } %>

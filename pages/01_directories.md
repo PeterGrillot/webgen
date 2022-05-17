@@ -1,6 +1,6 @@
 # Webgen
 
-![Webgen Logo](/static/webgen-logo.png 'Webgen logo')
+![Webgen Logo](./static/webgen-logo.png 'Webgen logo')
 
 Build websites like it's 2004. Create super simple web pages using `Markdown`. Also comes with templating via `ejs`. Build with node and typescript, it's perfect for github pages or simple resume sites!
 
