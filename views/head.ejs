@@ -1,11 +1,11 @@
 <head>
-  <link rel="stylesheet" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>styles/main.css>
-  <link rel="icon" type="image/ico" sizes="16x16" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/favicon.ico>
-  <link rel="icon" type="image/png" sizes="16x16" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/favicon-16x16.png>
-  <link rel="icon" type="image/png" sizes="32x32" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/favicon-32x32.png>
-  <link rel="icon" type="image/png" sizes="180x180" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/apple-touch-icon.png>
-  <link rel="icon" type="image/png" sizes="192x192" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/android-chrome-192x192.png>
-  <link rel="manifest" href=<% if (root !== '.') { %>/<%= root %>/<% } else { %>./<% } %>static/site.webmanifest>
+  <link rel="stylesheet" href=<%- include('smartlink.ejs'); %>styles/main.css>
+  <link rel="icon" type="image/ico" sizes="16x16" href=<%- include('smartlink.ejs'); %>static/favicon.ico>
+  <link rel="icon" type="image/png" sizes="16x16" href=<%- include('smartlink.ejs'); %>static/favicon-16x16.png>
+  <link rel="icon" type="image/png" sizes="32x32" href=<%- include('smartlink.ejs'); %>static/favicon-32x32.png>
+  <link rel="icon" type="image/png" sizes="180x180" href=<%- include('smartlink.ejs'); %>static/apple-touch-icon.png>
+  <link rel="icon" type="image/png" sizes="192x192" href=<%- include('smartlink.ejs'); %>static/android-chrome-192x192.png>
+  <link rel="manifest" href=<%- include('smartlink.ejs'); %>static/site.webmanifest>
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/static/mstile-150x150.png">
   <meta name="theme-color" content="#ffffff">

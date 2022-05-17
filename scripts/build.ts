@@ -59,6 +59,7 @@ async function build() {
     const baseOptions = {
       ...config,
       href,
+      isNested,
       ...rest,
       doc: html
     }
