@@ -4,14 +4,18 @@
     <img src="./webgen-logo.png" alt="Image" width="256"/>
 </p>
 
-Build websites like it's 2004. Create super simple web pages using `Markdown`. Also comes with templating via `ejs`. Built with node and typescript, it's perfect for github pages or simple resume sites!
+Build websites like it's 2004. Create super simple web pages using (Markdown)[https://www.markdownguide.org/] and/or HTML. Comes with templating via `ejs`. Built with node and typescript, it's perfect for github pages or simple resume sites!
 
 This is pretty bare-bones and does _yet_ not include:
 
 - typescript support
 - CSS preprocessing
 
-So keep it simple! Or expand this! You can use Javascript directly in `.ejs` files. YOu can also dig into the `build.ts` and hijack the `copyDir` to add any preprocess stuff. Hack away 🤓
+So keep it simple! Or expand this! You can use Javascript directly in `.ejs` files. You can also dig into the `build.ts` and hijack the `copyDir` to add any preprocess stuff. Hack away 🤓!!
+
+## Demo
+
+Check out [these cool pages](https://petergrillot.github.io/webgen) built with just `Markdown` and some `html`.
 
 ### Config
 
