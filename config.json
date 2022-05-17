@@ -1,6 +1,6 @@
 {
-  "name": "Webgen", 
-  "root": "",
+  "title": "Webgen", 
+  "root": ".",
   "links": [
     {
       "name": "Github",

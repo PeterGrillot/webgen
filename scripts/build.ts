@@ -16,7 +16,7 @@ import {
 // Constants
 const __filename = tsConfig.compilerOptions.baseUrl
 const __dirname = path.dirname(__filename)
-const __dist = config.root ?? '/'
+const __dist = config.root === '.' ? '' : config.root
 const __pages = 'pages/'
 const __views = 'views/'
 const pagesDir = path.join(__dirname, __pages)
@@ -24,7 +24,13 @@ const distDir = path.join(__dirname, __dist)
 
 async function build() {
   // Clean Dist
-  await cleanDir(path.join(distDir))
+  if (config.root !== '.') {
+    await cleanDir(path.join(distDir))
+    console.info('💾 Copying Files... 💾')
+    await copyDir(path.join(__dirname, '/styles/'), path.join(distDir, '/styles/'))
+    await copyDir(path.join(__dirname, '/static/'), path.join(distDir, '/static/'))
+
+  }
 
   // Copy CSS and Static Files
   // Add any preprocess stuff here!
@@ -32,9 +38,6 @@ async function build() {
   //   () => exec('tsc dir/index.ts -o static/index.js'),
   //   () => exec('postcss --use autoprefixer -o styles/main.css static/*.css')
   //  ]); 
-  console.info('💾 Copying Files... 💾')
-  await copyDir(path.join(__dirname, '/styles/'), path.join(distDir, '/styles/'))
-  await copyDir(path.join(__dirname, '/static/'), path.join(distDir, '/static/'))
 
   // Read markdown files from `pages` directory
   console.info('📖 Reading `pages` directory... 📖')
@@ -55,6 +58,7 @@ async function build() {
     const { href, html, isNested, ...rest } = doc
     const baseOptions = {
       ...config,
+      href,
       ...rest,
       doc: html
     }
@@ -73,8 +77,9 @@ async function build() {
   })
   console.info('🎉 Done! 🎉')
   if (process.env.IS_BUILD) {
-    exec(`npx http-server -s ${config.root}`)
-    console.info(`📡 Serving at http://localhost:8080/${config.root} 📡`)
+    let buildRoot = config.root === '.' ? '' : config.root
+    exec(`npx http-server -s ${buildRoot}`)
+    console.info(`📡 Serving at http://localhost:8080/${buildRoot} 📡`)
   }
 }
 
