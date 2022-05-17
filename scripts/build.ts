@@ -1,3 +1,4 @@
+import { exec } from 'child_process'
 import { readdir, copyFile, mkdir } from 'fs/promises'
 import * as path from 'path'
 import * as config from '../config.json'
@@ -15,10 +16,10 @@ import {
 // Constants
 const __filename = tsConfig.compilerOptions.baseUrl
 const __dirname = path.dirname(__filename)
-const __dist = 'dist/'
-const __docs = 'docs/'
+const __dist = config.root ?? '/'
+const __pages = 'pages/'
 const __views = 'views/'
-const docsDir = path.join(__dirname, __docs)
+const pagesDir = path.join(__dirname, __pages)
 const distDir = path.join(__dirname, __dist)
 
 async function build() {
@@ -35,17 +36,17 @@ async function build() {
   await copyDir(path.join(__dirname, '/styles/'), path.join(distDir, '/styles/'))
   await copyDir(path.join(__dirname, '/static/'), path.join(distDir, '/static/'))
 
-  // Read markdown files from `docs` directory
-  console.info('📖 Reading `docs` directory... 📖')
-  const docFilesOrDirList = await readdir(docsDir)
-  const nestedDocsList = await createNestedDocsList(docFilesOrDirList, docsDir)
+  // Read markdown files from `pages` directory
+  console.info('📖 Reading `pages` directory... 📖')
+  const docFilesOrDirList = await readdir(pagesDir)
+  const nestedDocsList = await createNestedDocsList(docFilesOrDirList, pagesDir)
 
   const flatPagination = flattenPagination(nestedDocsList)
 
   // Build out entire Document Structure
-  const fullDocs = await createFullPagination(flatPagination, docsDir)
+  const fullDocs = await createFullPagination(flatPagination, pagesDir)
 
-  console.info(`📕 Pages built from \`docs\`:\n\t📝 ${fullDocs.map(i => i.href).join('\n\t📝 ')}`)
+  console.info(`📕 Pages built from \`pages\`:\n\t📝 ${fullDocs.map(i => i.href).join('\n\t📝 ')}`)
 
   // Write to EJS and render to HTML
   console.info('🏁 Finish building pages 🏁')
@@ -71,6 +72,10 @@ async function build() {
     }
   })
   console.info('🎉 Done! 🎉')
+  if (process.env.IS_BUILD) {
+    exec(`npx http-server -s ${config.root}`)
+    console.info(`📡 Serving at http://localhost:8080/${config.root} 📡`)
+  }
 }
 
 build()

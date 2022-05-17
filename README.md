@@ -24,6 +24,7 @@ Set some simple configs to tweak footer links and set the index page. This is co
 ```js
 {
   "name": string, // Site name - Appears in page title
+  "root": string // Root folder to serve on
   "links": [ // Array of link objects for footer
     {
       "name": string, // link name
@@ -35,7 +36,7 @@ Set some simple configs to tweak footer links and set the index page. This is co
 
 ### Build
 
-`npm run build` - build `.ejs` templates and markdown (`.md`) and `.html` files from `docs/` directory into the `dist/` directory. It will also copy over all files in `static/` directory.
+`npm run build` - build `.ejs` templates and markdown (`.md`) and `.html` files from `pages/` directory into the `docs/` or whichever root directory. It will also copy over all files in `static/` directory.
 
 ### Development
 
@@ -47,12 +48,12 @@ Set some simple configs to tweak footer links and set the index page. This is co
 
 ### Directories
 
-`docs`
+`pages`
 
 Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spacing. If this convention is not followed, the build will break! Don't worry, we strip the numbers out on build.
 
 ```
-📂 docs
+📂 pages
  L  01_welcome.md
  L  02_what_we_offer.md
  L  03_about_us.html
@@ -68,7 +69,7 @@ You can also nest one level in a directory with the same numbered prefix naming.
 Consider the following:
 
 ```
-📂 docs
+📂 pages
  L 01_welcome.md
  L 📂 02_what_we_offer
     L 01_products.html
@@ -86,4 +87,4 @@ CSS files go here. This is also just copied so be sure to add your own preproces
 
 `views`
 
-Add `.ejs` templates here. See <a href="https://ejs.co/#docs" target="_blank">EJS Docs</a> for more info on how to use this robust templating language.
+Add `.ejs` templates here. See <a href="https://ejs.co/#pages" target="_blank">EJS Docs</a> for more info on how to use this robust templating language.

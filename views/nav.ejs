@@ -2,13 +2,13 @@
   <ul>
   <% nav.forEach(function(value) { %>
     <% if(value.href) {%>
-      <li><a href=/<%= value.href %>><%= value.name %></a></li>
+      <li><a href=/<%= root %>/<%= value.href %>><%= value.name %></a></li>
     <% } %>
     <% if(value.dir) {%>
       <li><%= value.dir %>
       <ul>
       <% value.nested.forEach(function(nest) { %>
-        <li><a href=/<%= nest.href %>><%= nest.name %></a></li>
+        <li><a href=/<%= root %>/<%= nest.href %>><%= nest.name %></a></li>
       <% }) %>
       </ul>
     <% } %>

@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ts-node -r tsconfig-paths/register ./scripts/build.ts",
     "clean": "ts-node -r tsconfig-paths/register ./scripts/clean.ts",
-    "dev": "npm run build && npx http-server ./dist/"
+    "dev": "IS_BUILD=true npm run build",
+    "deploy:gh-pages": "git checkout gh-pages && mv dist/* .&& rm -r ./dist/ && git add -A . && git commit -m 'Deploy gh-pages' && git push origin -u gh-pages&& git checkout main" 
   },
   "author": "",
   "license": "ISC",

@@ -1,6 +1,10 @@
 {
-  "title": "Webgen",
+  "name": "Webgen", 
+  "root": "",
   "links": [
-    {"name": "Github", "href": "https://github.com/PeterGrillot/webgen"}
+    {
+      "name": "Github",
+      "href": "https://github.com/PeterGrillot/webgen"
+    }
   ]
 }

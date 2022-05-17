@@ -8,7 +8,7 @@ import { cleanDir } from './helpers'
 const __filename = tsConfig.compilerOptions.baseUrl;
 const __dirname = path.dirname(__filename)
 const __dist = 'dist/';
-const __docs = 'docs/';
+const __pages = 'docs/';
 const __static = 'static/';
 
 function clean() {
@@ -24,7 +24,7 @@ function clean() {
       await cleanDir(distDir);
 
       // Clear docs
-      const docsDir = path.join(__dirname, __docs);
+      const docsDir = path.join(__dirname, __pages);
       console.log('Clearing out `docs` directory')
       await cleanDir(docsDir);
 
