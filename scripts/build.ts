@@ -74,6 +74,7 @@ async function build() {
   console.info('🎉 Done! 🎉')
   if (process.env.IS_BUILD) {
     exec(`npx http-server -s ${config.root}`)
+    console.info(`📡 Serving at http://localhost:8080/${config.root} 📡`)
   }
 }
 
