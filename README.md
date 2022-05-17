@@ -36,7 +36,9 @@ Set some simple configs to tweak footer links and set the index page. This is co
 
 ### Build
 
-`npm run build` - build `.ejs` templates and markdown (`.md`) and `.html` files from `pages/` directory into the `docs/` or whichever root directory. It will also copy over all files in `static/` directory.
+`npm run build` - build `.ejs` templates and markdown (`.md`) and `.html` files from `pages/` directory into the `docs/` or whichever root directory, It will also copy over all files in `static/` directory.
+
+**You can change the root directory in config.json > root**. If you do not want a specific directory to build to, you can change root to `"."`. It will compile to your project root. It **will not** copy over all files in `static/` directory, nor styles.
 
 ### Development
 
