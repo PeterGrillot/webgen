@@ -1,4 +1,4 @@
-import { exec } from 'child_process'
+import { exec, execSync, spawn } from 'child_process'
 import { readdir, copyFile, mkdir } from 'fs/promises'
 import * as path from 'path'
 import * as config from '../config.json'
@@ -79,8 +79,16 @@ async function build() {
   console.info('🎉 Done! 🎉')
   if (process.env.IS_BUILD) {
     let buildRoot = config.root === '.' ? '' : config.root
-    exec(`npx http-server -s ${buildRoot}`)
-    console.info(`📡 Serving at http://localhost:8080/${buildRoot} 📡`)
+    console.info(`📡 Serving ${buildRoot} 📡`)
+    var exec = require('child_process').exec;
+    var child = exec(`npx http-server -o ${buildRoot}`);
+    child.stdout.on('data', (data: string) => {
+      let message = data.match(/Available on:([\S\s]*)server/g)
+      if (message) {
+        console.log(`${message}`);
+      }
+    });
+
   }
 }
 
