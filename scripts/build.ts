@@ -88,7 +88,6 @@ async function build() {
         console.log(`${message}`);
       }
     });
-
   }
 }
 
