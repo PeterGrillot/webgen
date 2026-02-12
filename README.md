@@ -31,9 +31,26 @@ Set some simple configs to tweak footer links and set the index page. This is co
     }
   ]
 }
+
 ```
 
-## Get Started
+## Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/yourusername/webgen.git
+cd webgen
+npm install
+```
+
+### Clean Setup
+
+For a clean setup without examples:
+
+```
+npm install --no-optional
+```
 
 ### Build
 
