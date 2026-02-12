@@ -7,23 +7,28 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ts-node -r tsconfig-paths/register ./scripts/build.ts",
-    "clean": "ts-node -r tsconfig-paths/register ./scripts/clean.ts",
-    "dev": "IS_BUILD=true npm run build",
-    "deploy:gh-pages": "git checkout gh-pages && mv dist/* .&& rm -r ./dist/ && git add -A . && git commit -m 'Deploy gh-pages' && git push origin -u gh-pages&& git checkout main" 
+    "watch": "nodemon --watch pages --watch lib --watch styles --watch static --watch scripts --exec \"npm run dev\"",
+    "build": "npx tsx ./lib/build.ts",
+    "clean": "npx tsx ./lib/clean.ts",
+    "dev": "DEV_MODE=true npm run build",
+    "serve": "http-server build  -c-1 --port 8080",
+    "start": "concurrently \"npm run watch\" \"npm run serve\"",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.6",
     "markdown-it": "^12.3.2"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^17.0.23",
+    "concurrently": "^9.2.1",
+    "ejs": "^4.0.1",
+    "gh-pages": "^6.3.0",
     "http-server": "^14.1.0",
+    "nodemon": "^3.1.11",
     "ts-node": "^10.7.0",
     "tsconfig-paths": "^3.14.1",
     "tslib": "^2.3.1",

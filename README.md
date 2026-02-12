@@ -15,7 +15,7 @@ So keep it simple! Or expand this! You can use Javascript directly in `.ejs` fil
 
 ## Demo
 
-Check out [these cool pages](https://petergrillot.github.io/webgen) built with just `Markdown` and some `html`.
+Check out [the demo](https://petergrillot.github.io/webgen) as well as my [portfolio](https://petergrillot.github.io/) built with `Markdown`.
 
 ### Config
 
@@ -24,7 +24,6 @@ Set some simple configs to tweak footer links and set the index page. This is co
 ```js
 {
   "name": string, // Site name - Appears in page title
-  "root": string // Root folder to serve on
   "links": [ // Array of link objects for footer
     {
       "name": string, // link name
@@ -34,6 +33,8 @@ Set some simple configs to tweak footer links and set the index page. This is co
 }
 ```
 
+## Get Started
+
 ### Build
 
 `npm run build` - build `.ejs` templates and markdown (`.md`) and `.html` files from `pages/` directory into the `docs/` or whichever root directory, It will also copy over all files in `static/` directory.
@@ -42,7 +43,7 @@ Set some simple configs to tweak footer links and set the index page. This is co
 
 ### Development
 
-`npm run dev` - runs `npm run build` and serves on `localhost:8080` via `http-server`
+`npm run serve` - runs `npm run build` and along with watch via `nodemon`. The build folder is served on `localhost:8080` via `http-server`
 
 ### Clean
 
@@ -60,23 +61,6 @@ Markdown and HTML files go here. Use `01_` prefix for indexing and `_` for spaci
  L  02_what_we_offer.md
  L  03_about_us.html
 
-```
-
-#### Subdirectories
-
-You can also nest one level in a directory with the same numbered prefix naming.
-
-> **Important** Nested directories can only exist after an index file `01_<name>.html` or `01_<name>.md`. This makes it easier to handle index pages.
-
-Consider the following:
-
-```
-📂 pages
- L 01_welcome.md
- L 📂 02_what_we_offer
-    L 01_products.html
-    L 02_services.md
- L 03_about_us.html
 ```
 
 `static`

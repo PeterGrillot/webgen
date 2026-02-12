@@ -1,0 +1,6 @@
+{
+  "watch": ["styles/*.css", "pages/**/*.md", "scripts/**/*.js"],
+  "ext": "css,md,js",
+  "exec": "npm run build",
+  "out": "build"
+}
