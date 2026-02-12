@@ -1,7 +1,7 @@
 # Webgen
 
 <p align="center">
-    <img src="./webgen-logo.png" alt="Image" width="256"/>
+    <img src="./webgen/static/webgen-logo.png" alt="Image" width="256"/>
 </p>
 
 Build websites like it's 2004. Create super simple web pages using [Markdown](https://www.markdownguide.org/) and/or HTML. Comes with templating via `ejs`. Built with node and typescript, it's perfect for github pages or simple resume sites!
