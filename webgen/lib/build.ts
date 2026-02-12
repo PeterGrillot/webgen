@@ -1,7 +1,7 @@
 import { exec, spawn } from "child_process";
 import { readdir, copyFile, mkdir } from "fs/promises";
 import * as path from "path";
-import * as config from "../../config.json";
+import * as config from "../config.json";
 import * as tsConfig from "../tsconfig.json";
 import {
   cleanDir,

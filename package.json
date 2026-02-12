@@ -1,15 +1,12 @@
 {
   "name": "webgen",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "setup.js",
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist && mkdir dist",
-    "prepare": "npm run build",
-    "postinstall": "node scripts/setup.js"
+    "install": "node scripts/setup.js"
   },
   "bin": {
-    "webgen": "./lib/index.js"
+    "webgen": "./setup.js"
   },
   "files": [
     "lib",
